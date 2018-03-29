@@ -1,0 +1,30 @@
+﻿<Window x:Class="KiCadModuleEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KiCadModuleEditor"
+        mc:Ignorable="d"
+        Title="KiCADModuleEditor" Height="538.5" Width="985">
+	<Grid>
+		<RichTextBox x:Name="ContentRtb" HorizontalAlignment="Left" Height="168" Margin="10,329,0,0" VerticalAlignment="Top" Width="957">
+			<FlowDocument>
+				<Paragraph>
+					<Run Text="RichTextBox"/>
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<TextBox x:Name="ModuleNametb" Height="23" Margin="537,64,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="430" MaxLines="1" HorizontalAlignment="Left" TextChanged="CheckFilenameAndName_OnTextChanged"/>
+		<TextBox x:Name="ModuleFilenametb" Height="23" Margin="537,36,0,0" TextWrapping="Wrap" Text="filename" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
+		<TextBox x:Name="ModuleKeywordsTagstb" Height="59" Margin="537,182,0,0" TextWrapping="Wrap" Text="keywords tags" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+		<Button x:Name="OpenFolderDialogbutton" Content="SelectFiles" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Click="OpenFolderDialog_OnClick"/>
+		<ListBox x:Name="ModuleslistBox" HorizontalAlignment="Left" Height="289" Margin="10,35,0,0" VerticalAlignment="Top" Width="500" SelectionChanged="OnItemSelect_SelectionChanged"/>
+		<TextBox x:Name="ModuleDatasheetLinktb" Height="57" Margin="537,120,0,0" TextWrapping="Wrap" Text="datasheetlink" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+		<TextBox x:Name="ModuleValuetb" Height="23" Margin="537,92,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
+		<TextBox x:Name="Module3DModeLinkdtb" Height="53" Margin="537,246,0,0" TextWrapping="Wrap" Text="model3d link" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+		<Button x:Name="Savebutton" Content="SaveFieldsInThisFile" HorizontalAlignment="Left" Margin="851,304,0,0" VerticalAlignment="Top" Width="116" Click="Savebutton_Click"/>
+		<Button x:Name="UpdateNamesByFilenamesbutton" Content="UpdateNamesByFilenamesInAllFiles" HorizontalAlignment="Left" Margin="537,304,0,0" VerticalAlignment="Top" Width="205" Click="UpdateNamesByFilenamesbutton_Click"/>
+		<Label x:Name="statuslabel" Content="status" HorizontalAlignment="Left" Margin="537,5,0,0" VerticalAlignment="Top" Width="430" HorizontalContentAlignment="Center"/>
+
+	</Grid>
+</Window>
