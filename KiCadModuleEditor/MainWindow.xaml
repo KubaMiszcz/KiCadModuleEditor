@@ -6,25 +6,32 @@
         xmlns:local="clr-namespace:KiCadModuleEditor"
         mc:Ignorable="d"
         Title="KiCADModuleEditor" Height="538.5" Width="985">
-	<Grid>
-		<RichTextBox x:Name="ContentRtb" HorizontalAlignment="Left" Height="168" Margin="10,329,0,0" VerticalAlignment="Top" Width="957">
-			<FlowDocument>
-				<Paragraph>
-					<Run Text="RichTextBox"/>
-				</Paragraph>
-			</FlowDocument>
-		</RichTextBox>
-		<TextBox x:Name="ModuleNametb" Height="23" Margin="537,64,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="430" MaxLines="1" HorizontalAlignment="Left" TextChanged="CheckFilenameAndName_OnTextChanged"/>
-		<TextBox x:Name="ModuleFilenametb" Height="23" Margin="537,36,0,0" TextWrapping="Wrap" Text="filename" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
-		<TextBox x:Name="ModuleKeywordsTagstb" Height="59" Margin="537,182,0,0" TextWrapping="Wrap" Text="keywords tags" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
-		<Button x:Name="OpenFolderDialogbutton" Content="SelectFiles" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Click="OpenFolderDialog_OnClick"/>
-		<ListBox x:Name="ModuleslistBox" HorizontalAlignment="Left" Height="289" Margin="10,35,0,0" VerticalAlignment="Top" Width="500" SelectionChanged="OnItemSelect_SelectionChanged"/>
-		<TextBox x:Name="ModuleDatasheetLinktb" Height="57" Margin="537,120,0,0" TextWrapping="Wrap" Text="datasheetlink" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
-		<TextBox x:Name="ModuleValuetb" Height="23" Margin="537,92,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
-		<TextBox x:Name="Module3DModeLinkdtb" Height="53" Margin="537,246,0,0" TextWrapping="Wrap" Text="model3d link" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
-		<Button x:Name="Savebutton" Content="SaveFieldsInThisFile" HorizontalAlignment="Left" Margin="851,304,0,0" VerticalAlignment="Top" Width="116" Click="Savebutton_Click"/>
-		<Button x:Name="UpdateNamesByFilenamesbutton" Content="UpdateNamesByFilenamesInAllFiles" HorizontalAlignment="Left" Margin="537,304,0,0" VerticalAlignment="Top" Width="205" Click="UpdateNamesByFilenamesbutton_Click"/>
-		<Label x:Name="statuslabel" Content="status" HorizontalAlignment="Left" Margin="537,5,0,0" VerticalAlignment="Top" Width="430" HorizontalContentAlignment="Center"/>
+    <Grid>
+        <ListBox x:Name="ModuleslistBox" HorizontalAlignment="Left" Height="289" Margin="10,10,0,0" VerticalAlignment="Top" Width="401" SelectionChanged="OnItemSelect_SelectionChanged"/>
+        <RichTextBox x:Name="ContentRtb" HorizontalAlignment="Left" Height="129" Margin="10,368,0,0" VerticalAlignment="Top" Width="957">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <TextBox x:Name="ModuleNametb" Height="23" Margin="537,64,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="430" MaxLines="1" HorizontalAlignment="Left" TextChanged="CheckFilenameAndName_OnTextChanged"/>
+        <TextBox x:Name="ModuleFilenametb" Height="23" Margin="537,36,0,0" TextWrapping="Wrap" Text="filename" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
+        <TextBox x:Name="ModuleKeywordsTagstb" Height="59" Margin="537,182,0,0" TextWrapping="Wrap" Text="keywords tags" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+        <Button x:Name="OpenFolderDialogbutton" Content="SelectFiles" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top" Width="401" Click="OpenFolderDialog_OnClick" Height="50" Background="#FFD1FFC2" BorderBrush="#FF085B00" BorderThickness="5" FontSize="28" FontWeight="SemiBold" Foreground="#FF175500" IsDefault="True"/>
+        <TextBox x:Name="ModuleDatasheetLinktb" Height="57" Margin="537,120,0,0" TextWrapping="Wrap" Text="datasheetlink" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+        <TextBox x:Name="ModuleValuetb" Height="23" Margin="537,92,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" MaxLines="1" Width="430" HorizontalAlignment="Left"/>
+        <TextBox x:Name="Module3DModeLinkdtb" Height="53" Margin="537,246,0,0" TextWrapping="Wrap" Text="model3d link" VerticalAlignment="Top" Width="430" MaxLines="3" HorizontalAlignment="Left"/>
+        <Button x:Name="Savebutton" Content="SaveFieldsInThisFile" HorizontalAlignment="Left" Margin="810,313,0,0" VerticalAlignment="Top" Width="157" Click="Savebutton_Click" Height="50"/>
+        <Button x:Name="UpdateNamesByFilenamesbutton" Content="UpdateNamesByFilenamesInAllFiles" HorizontalAlignment="Left" Margin="537,313,0,0" VerticalAlignment="Top" Width="205" Click="UpdateNamesByFilenamesbutton_Click" Height="50"/>
+        <Label x:Name="statuslabel" Content="status" HorizontalAlignment="Left" Margin="537,5,0,0" VerticalAlignment="Top" Width="430" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label" Content="Filename" Margin="0,36,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy" Content="Name" Margin="0,64,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy1" Content="Value" Margin="0,92,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy2" Content="DataSheet" Margin="0,120,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy3" Content="Keywords" Margin="0,182,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="label_Copy4" Content="3D Model" Margin="0,246,445,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" HorizontalAlignment="Right"/>
+        <Label x:Name="OverallStatuslabel" Content="3D Model" Margin="0,274,467,0" VerticalAlignment="Top" Height="50" HorizontalAlignment="Right" Width="85" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
 
-	</Grid>
+    </Grid>
 </Window>
