@@ -145,7 +145,7 @@ namespace KiCadModuleEditor
 
 						FileInfo file = new System.IO.FileInfo(System.IO.Path.GetDirectoryName(item.Path)+"\\xxx\\");
 						file.Directory.Create(); // If the directory already exists, this method does nothing.
-						File.WriteAllText(file.FullName + item.FileName + "xxx", item.Content, Encoding.UTF8);
+						File.WriteAllText(file.FullName + item.FileName + "xxx", item.Content);
 						i++;
 					}
 				}
