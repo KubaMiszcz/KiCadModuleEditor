@@ -76,7 +76,7 @@ namespace KiCadModuleEditor
                   module.Value = new Regex(@"\(fp_text\svalue\s(.*)\s\(at").Match(content).Groups[1].Value;
                   module.LinkToDatasheet = new Regex(@"\(descr\s""(.*)""").Match(content).Groups[1].Value;
                   module.KeywordsList = new Regex(@"\(tags\s""(.*)""").Match(content).Groups[1].Value.Split(' ').ToList();
-                  module.LinkTo3DModel = new Regex(@"\(model\s(.*)\r\n").Match(content).Groups[1].Value;
+                  module.LinkTo3DModel = new Regex(@"\(model\s(.*)\n").Match(content).Groups[1].Value;
                   ModulesList.Add(module);
                }
                catch (Exception)
@@ -169,7 +169,7 @@ namespace KiCadModuleEditor
             foreach (var item in ModulesList)
             {
                var filename = System.IO.Path.GetFileNameWithoutExtension(item.FileName);
-               if (filename != item.Name)
+               if ((filename != item.Name)||DoUpdate3DModelPathcheckBox.IsChecked.Value)  //FIXITTTTT!!!!
                {
                   SaveModuleToDisk(item);
                   i++;
@@ -191,11 +191,18 @@ namespace KiCadModuleEditor
 
          ReplaceModuleNameWithFilename(item, filename);
          ReplaceModuleValueWithFilename(item, filename);
-         AddNewKeywords(item, filename);
+			if (DoUpdate3DModelPathcheckBox.IsChecked.Value) ReplaceModuleLinkTo3DModelWithFilename(item, filename);
+			AddNewKeywords(item, filename);
          File.WriteAllText(item.Path, item.Content);
       }
 
-      private void AddNewKeywords(KicadModule item, string filename)
+		private void ReplaceModuleLinkTo3DModelWithFilename(KicadModule item, string filename)
+		{
+			var str = Module3DModePathToAddtb.Text;
+			item.Content= Regex.Replace(item.Content, @"(\(model\s)(.*)(\n)", "$1" + str + filename + ".wrl$3");
+		}
+
+		private void AddNewKeywords(KicadModule item, string filename)
       {
          var newKeywordsList = System.IO.Path.GetFileNameWithoutExtension(item.FileName).Replace('_', ' ').Split(' ').ToList();
          item.KeywordsList.AddRange(newKeywordsList.Where(p2 =>
